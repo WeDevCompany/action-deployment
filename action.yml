@@ -1,0 +1,17 @@
+# action.yml
+# action.yml
+name: "Stagin job"
+description: "An action to create and deploy code to our staging servers"
+inputs:
+  username:
+    description: "The login username for docker"
+    required: true
+  password:
+    description: "The login password for docker"
+    required: true
+  branch:
+    description: "Deploy Branch"
+    required: true
+runs:
+  using: "docker"
+  image: "Dockerfile"
