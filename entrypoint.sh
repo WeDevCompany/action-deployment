@@ -48,7 +48,3 @@ bash droplet_deploy.sh
 ID_FINGERPRINT=$(doctl compute ssh-key list --format ID,FingerPrint,Name | grep -w "$SSH_NAME" | awk '{print$1}')
 doctl compute ssh-key delete $ID_FINGERPRINT -f
 echo "Delete fingerprint $ID_FINGERPRINT from digital ocean"
-
-# Final env
-env=$(cat .env)
-echo "::set-output name=env::$env"
