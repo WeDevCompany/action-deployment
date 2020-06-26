@@ -48,3 +48,11 @@ bash droplet_deploy.sh
 ID_FINGERPRINT=$(doctl compute ssh-key list --format ID,FingerPrint,Name | grep -w "$SSH_NAME" | awk '{print$1}')
 doctl compute ssh-key delete $ID_FINGERPRINT -f
 echo "Delete fingerprint $ID_FINGERPRINT from digital ocean"
+
+# Notification
+REPO_NAME=${INPUT_REPOSITORY}
+PUBLIC_IPV4_DROPLET=$(grep -w PUBLIC_IPV4_DROPLET .env | cut -d '=' -f2);
+SERVER_DATE_TIME_EXPIRE=$(date --date="$DROPLET_LIFE" '+%Y-%m-%d_%H:%M');
+JSON_REQUEST=$(echo "{"\"value1\"":"\"$REPO_NAME\"","\"value2\"":"\"$PUBLIC_IPV4_DROPLET\"","\"value3\"":"\"$SERVER_DATE_TIME_EXPIRE\""}")
+
+curl -X POST -H "Content-Type: application/json" -d $JSON_REQUEST https://maker.ifttt.com/trigger/staging-notification/with/key/ose0APV60UU1PHofj3GqCgWs1EYVO8lINrRTKHyopps

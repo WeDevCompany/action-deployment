@@ -12,6 +12,9 @@ inputs:
   branch:
     description: "Deploy Branch"
     required: true
+  repository:
+    description: "git repository"
+    required: true
 runs:
   using: "docker"
   image: "Dockerfile"
