@@ -9,9 +9,6 @@ inputs:
   password:
     description: "The login password for docker"
     required: true
-  branch:
-    description: "Deploy Branch"
-    required: true
   repository:
     description: "git repository"
     required: true

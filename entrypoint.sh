@@ -3,7 +3,7 @@
 DOCTL_VERSION=1.45.1
 
 # Deployment repository
-git clone https://${INPUT_USERNAME}:${INPUT_PASSWORD}@github.com/WeDevCompany/deployment.git -b ${INPUT_BRANCH} ~/deployment
+git clone https://${INPUT_USERNAME}:${INPUT_PASSWORD}@github.com/WeDevCompany/deployment.git -b master ~/deployment
 cd ~/deployment
 
 # obtain env from API and convert
